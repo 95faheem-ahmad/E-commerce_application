@@ -1,15 +1,18 @@
 package com.faheem.ecom.entity;
 
 import java.time.LocalDateTime;
+import java.util.Set;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -42,4 +45,7 @@ public class ProductCategory {
 	
 	@Column(name = "image_url")
 	private String ImageUrl;
+	
+	@OneToMany(mappedBy="category",cascade=CascadeType.ALL)
+	private Set<Product>products;
 }
