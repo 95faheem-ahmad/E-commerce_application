@@ -13,9 +13,12 @@ import com.faheem.ecom.entity.Product;
 @RepositoryRestResource(path="products")
 public interface ProductRepository extends JpaRepository<Product, Long> {
 
-	
-	Page<Product> findByCategory_CategoryId(@Param("categoryId") Long categoryId, Pageable pageable);
 
+	
+	Page<Product> findByCategoryCategoryId(@Param("categoryId") Long categoryId, Pageable pageable);
+
+
+Page<Product>findByNameContaining(@Param("name")String name, Pageable pageable);
 
 }
 
